@@ -1,0 +1,65 @@
+{% load static %} <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Welcome to this cool todoapp</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'todo/css/todomain.css' %}"
+    />
+  </head>
+  <body>
+    <h1>Todo app</h1>
+    <div class="container">
+      <h2>What do you have in mind today ?</h2>
+      <div class="form-container">
+        <form method="post" action="{% url 'add-todo'%}" id="add_to_todo">
+          {% csrf_token %}
+          <div class="input-container">
+            <input
+              type="text"
+              placeholder="Add a new todo"
+              name="todo_text"
+              id="todo_text"
+            />
+            <input type="submit" value="add" />
+          </div>
+        </form>
+      </div>
+      <div class="todos">
+        {% if todos %}
+        <ul class="todo-list">
+          {% for todo in todos %} {% if todo.todo_is_done == True %}
+          <li class="done">
+            <a href="javascript:void(0)">{{ todo }}</a
+            ><span>
+              <a href="{% url 'delete' todo.id %}"
+                ><i class="todo-action">delete</i></a
+              >
+            </span>
+          </li>
+          {% else %}
+          <li data-id="li{{todo.id}}">
+            <a href="javascript::void(0)" class="">{{ todo }}</a>
+            <span class="actions">
+              <a href="{% url 'delete' todo.id %}"
+                ><i class="todo-action">delete</i></a
+              >
+              <a href="{% url 'completed' todo.id %}"
+                ><i class="todo-action">done</i></a
+              >
+            </span>
+          </li>
+          {% endif %} {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    <p>Get the full code on github</p>
+    <a href="https://www.github.com/sammyodiagbe" style="color: #ffff;"
+      >Github: https://github.com/sammyodiagbe</a
+    >
+  </body>
+</html>

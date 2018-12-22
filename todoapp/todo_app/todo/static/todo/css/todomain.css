@@ -1,0 +1,160 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  font-family: calibri;
+  background: #3377a6;
+  text-align: center;
+  color: #fff;
+}
+
+div.container {
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  padding: 0 0;
+  color: #000;
+  overflow: auto;
+  color: #fff;
+}
+
+div.container h2 {
+  padding: 10px 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+input[type="text"] {
+  padding: 15px 1em 15px 1em;
+  border: 0;
+  outline: 0;
+  font-size: 1em;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 2s;
+}
+div.form-container {
+  margin-bottom: 5px;
+  padding: 3px 20px;
+}
+
+div.form-container div.input-container {
+  display: flex;
+  padding: 0 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.form-container input[type="text"] {
+  flex: 1;
+}
+
+input[type="submit"] {
+  padding: 15px 1em;
+  border: 0;
+  outline: 0;
+  background: #dfeaf5;
+  color: #000;
+  cursor: pointer;
+  font-size: 1em;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+div.todos {
+  padding: 10px 20px;
+  max-height: 500px;
+  transition: all 0.5s;
+  width: 100%;
+}
+
+/* div.todos ul { }*/
+
+div.todos ul li {
+  list-style: none;
+  padding: 10px 0 10px 10px;
+  margin-bottom: 5px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: left;
+  transition: 0.8s;
+}
+li.done {
+  background: #e1e2a3 !important;
+}
+
+.done a {
+  text-decoration: line-through;
+  color: #a1a1a1;
+  opacity: 0.8;
+}
+
+.done span {
+  display: flex;
+  text-decoration: none;
+  justify-content: flex-end;
+  padding: 10px 5px 10px 0;
+}
+
+.done span a,
+.actions a[href^="/delete/"] {
+  text-decoration: none !important;
+  font-weight: bold;
+  align-self: flex-end;
+  color: #ff4477;
+}
+
+.actions a[href^="/completed/"] {
+  color: rgb(26, 211, 35);
+}
+
+.actions {
+  display: block;
+  display: flex;
+  justify-content: flex-end;
+  align-content: right;
+  width: 100%;
+  padding: 10px 5px 10px 0;
+}
+
+.todo-action {
+  margin-left: 5px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.todo-action:nth-child(2) {
+  color: #555;
+}
+
+.todo-action:nth-child(3) {
+  color: #f544a7;
+}
